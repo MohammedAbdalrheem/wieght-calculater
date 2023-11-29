@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WeightCalac</title>
+</head>
+<body>
+        <div id="continer" style="text-align:center;margin-top: 100px;">
+            <div>
+                <h1 style="font-size: 30px;">الوزن</h1>
+                <input type="text" id="weight">
+
+            </div>
+            <div >
+                <h1>الطول</h1>
+                <input type="text" id="height">
+                <div>
+                    <button id="submit-btn"style="margin: 10px 20px; color:black ;"><strong>أحسب</strong></button>
+                    <h3 id="bmi"></h3>
+                    <h1 id="bmi-catg" style="color: rgb(253, 3, 3);margin-top: 10px; "></h1>
+                </div>
+                
+
+
+            </div>
+    </div>
+    <style>
+      html body {
+        background: linear-gradient(90deg,  hsl(43, 89%, 38%), rgba(212, 218, 23, 0.816));
+       }
+       
+        
+    </style>
+    <script>
+document.getElementById("submit-btn").addEventListener("click",function(){
+  let weight = document.getElementById("weight").value
+  let height = document.getElementById("height").value
+  let bmi = weight / (height*height)
+  document.getElementById("bmi").innerHTML=bmi
+  catogry(bmi)
+
+
+})
+function catogry(x){
+    let bmiCatogry = " "
+        if(x < 18 ){
+        bmiCatogry="نحيف"
+        }
+        else if (x < 24.9) {
+        bmiCatogry="وزن مثالي"
+        }
+        else if (x < 29.9) {
+        bmiCatogry="وزن زائد"
+        }
+        else if (x < 34.9) {
+        bmiCatogry="سمنة درجة أولى"
+        }
+        else if (x < 39.9) {
+        bmiCatogry="سمنة درجة ثانية"
+        }
+        else {
+        bmiCatogry="سمنة خطيرة"   
+       }
+      return document.getElementById("bmi-catg").innerHTML=bmiCatogry
+    }
+    document.getElementById("weight").value=""
+    document.getElementById("height").value=""
+
+    </script>
+</body>
+</html>
